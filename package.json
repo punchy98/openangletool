@@ -2,7 +2,7 @@
     "name": "openangletool",
     "version": "0.2.0",
     "private": true,
-    "homepage": "https://openangletool.github.io",
+    "homepage": "https://punchy98.github.io/openangletool",
     "dependencies": {
         "@testing-library/jest-dom": "^6.6.2",
         "@testing-library/react": "^16.0.1",
