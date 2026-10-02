@@ -85,6 +85,71 @@ class App extends React.Component {
                 o: '50',
                 hc: '20',
             },
+            {
+                name: '1x30 Flat Platen',
+                dw: '0',
+                lp: '140',
+                beta: '17',
+                ds: '12',
+                dj: '12',
+                o: '0',
+                hc: '0',
+                flat: true,
+                betaCal: '35',
+                dCal: '134',
+            },
+            {
+                name: '1x30 Flat 15°',
+                dw: '0',
+                lp: '140',
+                beta: '15',
+                ds: '12',
+                dj: '12',
+                o: '0',
+                hc: '0',
+                flat: true,
+                betaCal: '35',
+                dCal: '134',
+            },
+            {
+                name: '1x30 Flat 17°',
+                dw: '0',
+                lp: '140',
+                beta: '17',
+                ds: '12',
+                dj: '12',
+                o: '0',
+                hc: '0',
+                flat: true,
+                betaCal: '35',
+                dCal: '134',
+            },
+            {
+                name: '1x30 Flat 20°',
+                dw: '0',
+                lp: '140',
+                beta: '20',
+                ds: '12',
+                dj: '12',
+                o: '0',
+                hc: '0',
+                flat: true,
+                betaCal: '35',
+                dCal: '134',
+            },
+            {
+                name: '1x30 Flat 25°',
+                dw: '0',
+                lp: '140',
+                beta: '25',
+                ds: '12',
+                dj: '12',
+                o: '0',
+                hc: '0',
+                flat: true,
+                betaCal: '35',
+                dCal: '134',
+            },
         ];
 
         this.handleSelect = this.handleSelect.bind(this);
@@ -218,16 +283,18 @@ class App extends React.Component {
                                     <Geo1 />
                                 </Col>
                                 <Col lg={9}>
-                                    <Form.Group as={Row} controlId="dw">
-                                        <Form.Label column sm={3}>Wheel Diameter</Form.Label>
-                                        <Col sm={9}>
-                                            <InputGroup>
-                                                <InputGroup.Text>d<sub>w</sub></InputGroup.Text>
-                                                <Form.Control type="text" name="dw" value={profile.dw} onChange={this.handleChange} />
-                                                <InputGroup.Text>mm</InputGroup.Text>
-                                            </InputGroup>
-                                        </Col>
-                                    </Form.Group>
+                                    {!profile.flat &&
+                                        <Form.Group as={Row} controlId="dw">
+                                            <Form.Label column sm={3}>Wheel Diameter</Form.Label>
+                                            <Col sm={9}>
+                                                <InputGroup>
+                                                    <InputGroup.Text>d<sub>w</sub></InputGroup.Text>
+                                                    <Form.Control type="text" name="dw" value={profile.dw} onChange={this.handleChange} />
+                                                    <InputGroup.Text>mm</InputGroup.Text>
+                                                </InputGroup>
+                                            </Col>
+                                        </Form.Group>
+                                    }
                                     <Form.Group as={Row} controlId="lp">
                                         <Form.Label column sm={3}>Projection Distance</Form.Label>
                                         <Col sm={9}>
@@ -249,7 +316,7 @@ class App extends React.Component {
                                         </Col>
                                     </Form.Group>
                                     <Form.Group as={Row} controlId="hr">
-                                        <Form.Label column sm={3}>Wheel Distance</Form.Label>
+                                        <Form.Label column sm={3}>{profile.flat ? 'Bar Distance' : 'Wheel Distance'}</Form.Label>
                                         <Col sm={9}>
                                             <InputGroup>
                                                 <InputGroup.Text>h<sub>r</sub></InputGroup.Text>
@@ -284,46 +351,96 @@ class App extends React.Component {
                                     <Geo2 />
                                 </Col>
                                 <Col lg={9}>
-                                    <Form.Group as={Row} controlId="ds">
-                                        <Form.Label column sm={3}>Support Bar Diameter</Form.Label>
-                                        <Col sm={9}>
-                                            <InputGroup>
-                                                <InputGroup.Text>d<sub>s</sub></InputGroup.Text>
-                                                <Form.Control type="text" name="ds" value={profile.ds} onChange={this.handleChange} />
-                                                <InputGroup.Text>mm</InputGroup.Text>
-                                            </InputGroup>
+                                    <Form.Group as={Row} controlId="flat">
+                                        <Form.Label column sm={3}>Flat Platen</Form.Label>
+                                        <Col sm={9} className="d-flex align-items-center">
+                                            <Form.Check
+                                                type="switch"
+                                                name="flat"
+                                                label="belt sander / flat grinding surface (no wheel)"
+                                                checked={!!profile.flat}
+                                                onChange={this.handleChange}
+                                            />
                                         </Col>
                                     </Form.Group>
-                                    <Form.Group as={Row} controlId="dj">
-                                        <Form.Label column sm={3}>Knife Jig Diameter</Form.Label>
-                                        <Col sm={9}>
-                                            <InputGroup>
-                                                <InputGroup.Text>d<sub>j</sub></InputGroup.Text>
-                                                <Form.Control type="text" name="dj" value={profile.dj} onChange={this.handleChange} />
-                                                <InputGroup.Text>mm</InputGroup.Text>
-                                            </InputGroup>
-                                        </Col>
-                                    </Form.Group>
-                                    <Form.Group as={Row} controlId="o">
-                                        <Form.Label column sm={3}>Support Bar Offset</Form.Label>
-                                        <Col sm={9}>
-                                            <InputGroup>
-                                                <InputGroup.Text>o</InputGroup.Text>
-                                                <Form.Control type="text" name="o" value={profile.o} onChange={this.handleChange} />
-                                                <InputGroup.Text>mm</InputGroup.Text>
-                                            </InputGroup>
-                                        </Col>
-                                    </Form.Group>
-                                    <Form.Group as={Row} controlId="hc">
-                                        <Form.Label column sm={3}>Case Height</Form.Label>
-                                        <Col sm={9}>
-                                            <InputGroup>
-                                                <InputGroup.Text>h<sub>c</sub></InputGroup.Text>
-                                                <Form.Control type="text" name="hc" value={profile.hc} onChange={this.handleChange} />
-                                                <InputGroup.Text>mm</InputGroup.Text>
-                                            </InputGroup>
-                                        </Col>
-                                    </Form.Group>
+                                    {profile.flat &&
+                                        <>
+                                            <Form.Text className="text-muted d-block mb-3">
+                                                Calibrate once: grind a bevel, measure the angle you
+                                                actually got and the bar distance you used, and enter
+                                                them below. This captures the platen tilt, bar/jig
+                                                sizes and your measuring reference automatically.
+                                            </Form.Text>
+                                            <Form.Group as={Row} controlId="betaCal">
+                                                <Form.Label column sm={3}>Calibration Angle</Form.Label>
+                                                <Col sm={9}>
+                                                    <InputGroup>
+                                                        <InputGroup.Text>β<sub>cal</sub></InputGroup.Text>
+                                                        <Form.Control type="text" name="betaCal" value={profile.betaCal || ''} onChange={this.handleChange} />
+                                                        <InputGroup.Text>°</InputGroup.Text>
+                                                    </InputGroup>
+                                                </Col>
+                                            </Form.Group>
+                                            <Form.Group as={Row} controlId="dCal">
+                                                <Form.Label column sm={3}>Calibration Distance</Form.Label>
+                                                <Col sm={9}>
+                                                    <InputGroup>
+                                                        <InputGroup.Text>D<sub>cal</sub></InputGroup.Text>
+                                                        <Form.Control type="text" name="dCal" value={profile.dCal || ''} onChange={this.handleChange} />
+                                                        <InputGroup.Text>mm</InputGroup.Text>
+                                                    </InputGroup>
+                                                </Col>
+                                            </Form.Group>
+                                        </>
+                                    }
+                                    {!profile.flat &&
+                                        <Form.Group as={Row} controlId="ds">
+                                            <Form.Label column sm={3}>Support Bar Diameter</Form.Label>
+                                            <Col sm={9}>
+                                                <InputGroup>
+                                                    <InputGroup.Text>d<sub>s</sub></InputGroup.Text>
+                                                    <Form.Control type="text" name="ds" value={profile.ds} onChange={this.handleChange} />
+                                                    <InputGroup.Text>mm</InputGroup.Text>
+                                                </InputGroup>
+                                            </Col>
+                                        </Form.Group>
+                                    }
+                                    {!profile.flat &&
+                                        <Form.Group as={Row} controlId="dj">
+                                            <Form.Label column sm={3}>Knife Jig Diameter</Form.Label>
+                                            <Col sm={9}>
+                                                <InputGroup>
+                                                    <InputGroup.Text>d<sub>j</sub></InputGroup.Text>
+                                                    <Form.Control type="text" name="dj" value={profile.dj} onChange={this.handleChange} />
+                                                    <InputGroup.Text>mm</InputGroup.Text>
+                                                </InputGroup>
+                                            </Col>
+                                        </Form.Group>
+                                    }
+                                    {!profile.flat &&
+                                        <Form.Group as={Row} controlId="o">
+                                            <Form.Label column sm={3}>Support Bar Offset</Form.Label>
+                                            <Col sm={9}>
+                                                <InputGroup>
+                                                    <InputGroup.Text>o</InputGroup.Text>
+                                                    <Form.Control type="text" name="o" value={profile.o} onChange={this.handleChange} />
+                                                    <InputGroup.Text>mm</InputGroup.Text>
+                                                </InputGroup>
+                                            </Col>
+                                        </Form.Group>
+                                    }
+                                    {!profile.flat &&
+                                        <Form.Group as={Row} controlId="hc">
+                                            <Form.Label column sm={3}>Case Height</Form.Label>
+                                            <Col sm={9}>
+                                                <InputGroup>
+                                                    <InputGroup.Text>h<sub>c</sub></InputGroup.Text>
+                                                    <Form.Control type="text" name="hc" value={profile.hc} onChange={this.handleChange} />
+                                                    <InputGroup.Text>mm</InputGroup.Text>
+                                                </InputGroup>
+                                            </Col>
+                                        </Form.Group>
+                                    }
                                 </Col>
                             </Row>
                         </Card.Body>
