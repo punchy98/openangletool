@@ -95,8 +95,8 @@ class App extends React.Component {
                 o: '0',
                 hc: '0',
                 flat: true,
-                betaCal: '35',
-                dCal: '134',
+                betaCal: '17',
+                dCal: '94.6',
             },
             {
                 name: '1x30 Flat 15°',
@@ -108,8 +108,8 @@ class App extends React.Component {
                 o: '0',
                 hc: '0',
                 flat: true,
-                betaCal: '35',
-                dCal: '134',
+                betaCal: '17',
+                dCal: '94.6',
             },
             {
                 name: '1x30 Flat 17°',
@@ -121,8 +121,8 @@ class App extends React.Component {
                 o: '0',
                 hc: '0',
                 flat: true,
-                betaCal: '35',
-                dCal: '134',
+                betaCal: '17',
+                dCal: '94.6',
             },
             {
                 name: '1x30 Flat 20°',
@@ -134,8 +134,8 @@ class App extends React.Component {
                 o: '0',
                 hc: '0',
                 flat: true,
-                betaCal: '35',
-                dCal: '134',
+                betaCal: '17',
+                dCal: '94.6',
             },
             {
                 name: '1x30 Flat 25°',
@@ -147,8 +147,8 @@ class App extends React.Component {
                 o: '0',
                 hc: '0',
                 flat: true,
-                betaCal: '35',
-                dCal: '134',
+                betaCal: '17',
+                dCal: '94.6',
             },
         ];
 
